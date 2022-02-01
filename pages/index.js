@@ -35,6 +35,7 @@ export default function Home() {
                 type="text"
                 id="item"
                 value={query}
+                placeholder="Bitcoin"
                 onChange={(e) => setQuery(e.target.value)}
               />
               <input type="submit" className="border-2 p-2" value="Get news" />
