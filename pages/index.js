@@ -1,17 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import {useState} from "react"
-import {useRouter} from "next/router"
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
-  const [query, setQuery] = useState("")
-  const router = useRouter()
+  const [query, setQuery] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    router.push(`/posts/${query}`)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast(`We're getting you news!`)
+    router.push(`/posts/${query}`);
+  };
   return (
     <div>
       <Head>
@@ -20,20 +23,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto">
+        <ToastContainer />
         <div>
           <div className="">
             <form onSubmit={handleSubmit}>
-              <label className="block pb-2" htmlFor="item">
+              <label className="block pb-2 mt-5" htmlFor="item">
                 What is your request
               </label>
-              <input className="block mb-2" type="text" id="item" value={query} onChange={(e) => setQuery(e.target.value)}/>
+              <input
+                className="block mb-2"
+                type="text"
+                id="item"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
               <input type="submit" className="border-2 p-2" value="Get news" />
             </form>
           </div>
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className={`${styles.footer} mt-10`}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
