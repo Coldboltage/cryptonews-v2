@@ -13,18 +13,18 @@ const PostItem = ({
   return (
     <div className="grid grid-cols-4 gap-5 mb-10">
       {/* Picture Side */}
-      <div className="col-span-1">
+      <div className="col-span-2 lg:col-span-1">
         <a href={url}>
           <img
             src={urlToImage === null ? placeholder.src : urlToImage}
             alt={title}
-            width={200}
+            width={300}
             height={200}
           ></img>
         </a>
       </div>
       {/* Information side */}
-      <div className="pb-10 col-span-3">
+      <div className="pb-10 col-span-2 lg:col-span-3">
         <a href={url} target="_blank" rel="noopener noreferrer">
           {title}
         </a>

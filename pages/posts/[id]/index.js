@@ -4,7 +4,7 @@ import {useRouter} from "next/router"
 
 export default function Posts({data, id}) {
   const router = useRouter()
-  return <div className="m-10">
+  return <div className="my-10 container px-5 sm:px-20 mx-auto">
     <h1 className="mb-5 text-2xl font-bold">Posts relating to {id}</h1>
     <button className="mb-5" type="text" onClick={() => router.push("/")}>Go Back</button>
     <ol className="list-disc">
