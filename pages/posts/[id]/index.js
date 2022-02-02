@@ -21,7 +21,9 @@ export async function getServerSideProps({params: {id}}) {
       "Authorization" : apiKey
     }
   });
+
   const data = await res.json();
+  console.log(data)
   return {
     props:{data, id}
   }
